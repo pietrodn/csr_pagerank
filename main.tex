@@ -61,7 +61,7 @@
 \end{frame}
 
 \begin{frame}{One PageRank fits all?}
-    What is the relation between PR's efficacy and the properties of the network?
+    What is the relation between PageRank's efficacy and the properties of the network?
     \begin{itemize}
         \item PageRank: \alert{static} approach
         \begin{itemize}
@@ -91,7 +91,7 @@
             \item used to model WWW, citation and technological networks
         \end{itemize}
 
-        \item Three fundamental features:
+        \item Fundamental features:
         \begin{enumerate}
             \item preferential attachment
             \item node fitness
@@ -103,26 +103,26 @@
 
 \begin{frame}{Relevance Model features}
     \begin{enumerate}
-        \item Preferential attachment
+        \item \alert{Preferential attachment}
         \begin{itemize}
             \item similar to the Barabasi-Albert model
             \item Matthew effect: the rich get richer
             \item significant difference: \emph{existing nodes also create new links}
         \end{itemize}
 
-        \item Fitness
+        \item \alert{Fitness}
         \begin{itemize}
             \item quality parameter assigned to each node
             \item \emph{node’s inherent competence in attracting new incoming links}
         \end{itemize}
 
-        \item Relevance and activity
+        \item \alert{Relevance and activity}
         \begin{itemize}
-            \item Relevance: capacity of attracting new links
+            \item Relevance: capacity of attracting new links over time
             \item Activity: rate at which the node generates new outgoing links
         \end{itemize}
 
-        \item Temporal decay
+        \item \alert{Temporal decay}
         \begin{itemize}
             \item Relevance and activity both decay with time
             \item Monotonous functions
@@ -223,6 +223,7 @@
     \begin{itemize}
         \item $r(p, \eta)$: Pearson's correlation PageRank-fitness
         \item $r(k^{in}, \eta)$: Pearson's correlation indegree-fitness
+        \item $\rho(\eta) = \exp(-\eta)$
     \end{itemize}
 \end{frame}
 \end{document}

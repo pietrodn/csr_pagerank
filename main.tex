@@ -1,13 +1,24 @@
-\documentclass[utf8, compress]{beamer}
+\documentclass[utf8]{beamer}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
+
+% TODO: review fonts!
+\usefonttheme[onlymath]{serif}
 
 \usetheme{default}
 \title[When PageRank fails]{Ranking nodes in growing networks: \\ When PageRank fails}
 \author[De Nicolao]{Pietro De Nicolao \\ \texttt{pietro.denicolao@mail.polimi.it}}
 \date{\today} % TODO change
 \institute{Politecnico di Milano}
+
+% \AtBeginSection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
 
 \begin{document}
 
@@ -158,6 +169,60 @@
         \item $\tau_i$: time at which $i$ enters the network
         \item $f_A$: monotonously decaying function of time
         \item broad $A_i$ distribution $\Longrightarrow$ broad outdegree distribution
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Effects of relevance decay}
+\begin{itemize}
+    \item \alert{Slow} or absent relevance decay
+    \begin{itemize}
+        \item recent nodes receive few links because of preferential attachment
+        \item PageRank's bias towards old nodes
+    \end{itemize}
+    \item \alert{Fast} relevance decay
+    \begin{itemize}
+        \item preferential attachment compensated by decay of relevance of old nodes
+        \item recent nodes can reach high indegree
+        \item recent nodes mostly point to other recent nodes, because of relevance decay of older nodes
+        \item old nodes point to nodes of every age because of activity
+    \end{itemize}
+\end{itemize}
+% Figure 1 ?
+\end{frame}
+
+\begin{frame}{What makes a ranking algorithm ``good''?}
+    \begin{center}
+        \emph{A good ranking algorithm is expected to produce \\ an unbiased ranking where both \alert{recent} and \alert{old} nodes \\ have \alert{the same chance to appear at the top}.}
+    \end{center}
+    \begin{itemize}
+        \item In growing networks with temporal effects, \alert{PageRank can fail} to achieve this.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{PageRank time bias: numerical simulation of RM}
+    \begin{figure}
+        \includegraphics[width=0.7\textwidth]{figures/PageRank_time_bias}
+        \caption{Comparison of PageRank and indegree rankings in the RM model. \newline
+        Relevance decays as $f_R(t) = \exp(-\frac{t}{\theta_R})$. \newline
+        Activity also decays exponentially, but very slowly ($\theta_A=N$).}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{PageRank vs. indegree: correlation with fitness}
+    \begin{figure}
+        \begin{columns}
+
+        \column{0.6\textwidth}
+            \includegraphics[width=1.0\textwidth]{figures/PageRankRM_heatmap}
+
+        \column{0.4\textwidth}
+            \caption{Comparison of performance of PageRank and indegree (RM data). \newline
+            PageRank yields no improvement with respect to indegree.}
+        \end{columns}
+    \end{figure}
+    \begin{itemize}
+        \item $r(p, \eta)$: Pearson's correlation PageRank-fitness
+        \item $r(k^{in}, \eta)$: Pearson's correlation indegree-fitness
     \end{itemize}
 \end{frame}
 \end{document}

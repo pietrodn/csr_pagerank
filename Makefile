@@ -1,9 +1,9 @@
-.PHONY: clean all live pdf
+.PHONY: clean all live
 
-all:
+all: main.tex
 	latexmk -pdf -pv main
 
-live:
+live: main.tex
 	latexmk -pdf -pvc -silent main
 
 clean:

@@ -15,7 +15,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{EFM:\@ technical details}
+\begin{frame}{EFM:\@ sensitivity to fitness}
     Probability $\Pi_{i;j}^{in}(t)$ that a link created by node $j$ at time $t$ ends in node $i$:
     \[
         \Pi_{i;j}^{in}(t) \sim (k_i^{in}(t)+1)^{1-\eta_j} \, \eta_i^{\eta_j} \, f_R(t-\tau_i)
@@ -35,8 +35,6 @@
             \includegraphics[width=1.0\textwidth]{figures/PageRankEFM_heatmap}
 
         \column{0.4\textwidth}
-            \caption{Comparison of performance of PageRank and indegree (EFM data).}
-
             \begin{footnotesize}
             \begin{itemize}
                 \item $\rho(A) = 2A^{-3}, \; A \in [1, \infty]$
@@ -46,11 +44,8 @@
             \end{itemize}
             \end{footnotesize}
         \end{columns}
+        \caption{Comparison of performance of PageRank and indegree (EFM data).}
     \end{figure}
-    \begin{itemize}
-        \item $r(p, \eta)$: Pearson's correlation PageRank-fitness
-        \item $r(k^{in}, \eta)$: Pearson's correlation indegree-fitness
-    \end{itemize}
 \end{frame}
 
 % TODO: fig S6?

@@ -46,19 +46,26 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{RM generation algorithm}
+\begin{frame}{How to build a network with the Relevance Model}
     At each discrete time interval $t$, the \textbf{generation algorithm} proceeds as follows:
     \begin{enumerate}
-        \item a new node is created and connected to an existing node $i$, chosen with probability $\Pi_i^{in}(t)$.
-        \item $m=10$ existing nodes are sequentially chosen \\ with probability $\Pi_i^{out}(t)$ and become \emph{active}:
+        \item a \alert{new node} is created and connected to an existing node $i$, chosen with probability $\Pi_i^{in}(t)$.
+        \item If $t>10$, then $m=10$ existing nodes are sequentially chosen \\ with probability $\Pi_i^{out}(t)$ and become \alert{active}:
         \begin{itemize}
             \item each selected node creates one outgoing link
             \item it selects a node $j$ as a target with probability $\Pi_j^{in}(t)$
         \end{itemize}
     \end{enumerate}
+    \vspace{1em}
+    \begin{footnotesize}
+    \begin{itemize}
+        \item No multiple links.
+        \item No self loops.
+    \end{itemize}
+    \end{footnotesize}
 \end{frame}
 
-\begin{frame}{RM:\@ Link generation}
+\begin{frame}{Relevance Model:\@ Link generation mechanism}
     When a node $j$ generates a new link at time $t$, the probability that the target is node $i$ is:
     \[
         \Pi_i^{in}(t) \sim (k_i^{in}(t) + 1) \, \eta_i \, f_R (t-\tau_i)
@@ -72,10 +79,10 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{RM:\@ Node activity}
-    Nodes continue being active and generate outgoing links continually.
+\begin{frame}{Relevance Model:\@ Active nodes selection}
+    In the RM, nodes \alert{continue being active} and generate outgoing links continually.
 
-    Probability of being chosen as an \emph{active} node at time $t$:
+    Probability of being chosen as an \textbf{active node} at time $t$:
     \[
         \Pi_i^{out}(t) \sim A_i \, f_A (t-\tau_i)
     \]
@@ -83,16 +90,15 @@
         \item $A_i$: activity parameter
         \item $\tau_i$: time at which $i$ enters the network
         \item $f_A$: monotonously decaying function of time
-        \item broad $A_i$ distribution $\Longrightarrow$ broad outdegree distribution
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Effects of relevance decay}
+\begin{frame}{Effects of relevance decay in the RM}
 \begin{itemize}
     \item \alert{Slow} or absent relevance decay
     \begin{itemize}
         \item recent nodes receive few links because of preferential attachment
-        \item PageRank's bias towards old nodes
+        \item PageRank's bias towards old nodes in scale-free networks
     \end{itemize}
     \item \alert{Fast} relevance decay
     \begin{itemize}
@@ -117,10 +123,19 @@
 
 \begin{frame}{PageRank time bias: numerical simulation of RM}
     \begin{figure}
-        \includegraphics[width=0.7\textwidth]{figures/PageRank_time_bias}
-        \caption{Comparison of PageRank and indegree rankings in the RM model. \newline
-        Relevance decays as $f_R(t) = \exp(-\frac{t}{\theta_R})$. \newline
-        Activity also decays exponentially, but very slowly ($\theta_A=N$).}
+        \begin{columns}
+            \column{0.7\textwidth}
+                \includegraphics[width=1.0\textwidth]{figures/PageRank_time_bias}
+            \column{0.4\textwidth}
+                \begin{footnotesize}
+                \begin{itemize}
+                    \item Relevance decays as $f_R(t) = \exp(-\frac{t}{\theta_R})$.
+                    \item Activity decays exponentially, but very slowly ($\theta_A=N$).
+                    \item $N=10000$
+                \end{itemize}
+                \end{footnotesize}
+    \end{columns}
+    \caption{Average time of entrance of 1\% of nodes of PageRank and indegree rankings, in the RM model.}
     \end{figure}
 \end{frame}
 
@@ -132,21 +147,23 @@
             \includegraphics[width=1.0\textwidth]{figures/PageRankRM_heatmap}
 
         \column{0.4\textwidth}
-            \caption{Comparison of performance of PageRank and indegree (RM data). \newline
-            PageRank yields no improvement with respect to indegree. \newline
-            Diagonal: no temporal bias towards recent or old nodes.}
+
             \begin{footnotesize}
+                \begin{itemize}
+                    \item $r(p, \eta)$: correlation PageRank-fitness
+                    \item $r(k^{in}, \eta)$: correlation indegree-fitness
+                \end{itemize}
             \begin{itemize}
                 \item $\rho(\eta) = \exp(-\eta)$
                 \item $\rho(A) = 2A^{-3}, \; A \in [1, \infty]$
             \end{itemize}
         \end{footnotesize}
         \end{columns}
-    \end{figure}
-    \begin{itemize}
-        \item $r(p, \eta)$: Pearson's correlation PageRank-fitness
-        \item $r(k^{in}, \eta)$: Pearson's correlation indegree-fitness
-    \end{itemize}
+
+    \caption{Comparison of performance of PageRank and indegree (RM data). \newline
+    PageRank yields no improvement with respect to indegree. \newline
+    Diagonal: no temporal bias towards recent or old nodes.}
+\end{figure}
 \end{frame}
 
 % TODO: insert fig. S9a, S10a?

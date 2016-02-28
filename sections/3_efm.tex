@@ -1,0 +1,56 @@
+\section{The Extended Fitness Model}
+
+\begin{frame}{The Extended Fitness Model}
+    \begin{itemize}
+        \item \textbf{PageRank's under-performance in time-dependent networks is a general feature.}
+        \item We can validate this using a model more compatible with the idea that \emph{a node is important if it's pointed by other important nodes.}
+    \end{itemize}
+    \begin{center}
+        \alert{Extended Fitness Model} (EFM)
+    \end{center}
+    \begin{itemize}
+        \item \textbf{High-fitness nodes are more sensitive to fitness} than low-fitness nodes, when choosing their outgoing links.
+        \item High-fitness nodes are then more likely to be pointed by other high-fitness nodes than low-fitness nodes.
+        \item EFM is \alert{more favorable} to PageRank than RM.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{EFM:\@ technical details}
+    Probability $\Pi_{i;j}^{in}(t)$ that a link created by node $j$ at time $t$ ends in node $i$:
+    \[
+        \Pi_{i;j}^{in}(t) \sim (k_i^{in}(t)+1)^{1-\eta_j} \, \eta_i^{\eta_j} \, f_R(t-\tau_i)
+    \]
+    \begin{itemize}
+        \item Fitness $\eta \in [0, 1]$ to prevent negative exponents
+        \item $\Pi^{in}$ depends on the fitness of the target \emph{and of the source} nodes (difference with RM).
+        \item $k_i^{in}(t)$: indegree of node $i$ at time $t$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{PageRank vs.\ indegree: correlation with fitness in EFM}
+    \begin{figure}
+        \begin{columns}
+
+        \column{0.6\textwidth}
+            \includegraphics[width=1.0\textwidth]{figures/PageRankEFM_heatmap}
+
+        \column{0.4\textwidth}
+            \caption{Comparison of performance of PageRank and indegree (EFM data).}
+
+            \begin{footnotesize}
+            \begin{itemize}
+                \item $\rho(A) = 2A^{-3}, \; A \in [1, \infty]$
+                \item $H$ nodes: high fitness; $\eta \in [10^{-5}, 1]$
+                \item $(N-H)$ nodes: low fitness; $\eta \in [0, 10^{-5}]$
+                \item $N=10000$, $H=250$
+            \end{itemize}
+            \end{footnotesize}
+        \end{columns}
+    \end{figure}
+    \begin{itemize}
+        \item $r(p, \eta)$: Pearson's correlation PageRank-fitness
+        \item $r(k^{in}, \eta)$: Pearson's correlation indegree-fitness
+    \end{itemize}
+\end{frame}
+
+% TODO: fig S6?

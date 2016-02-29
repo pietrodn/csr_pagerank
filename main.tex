@@ -3,7 +3,13 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 
+% serif font for math only
 \usefonttheme[onlymath]{serif}
+
+% Big numbers separator
+\usepackage{siunitx}
+% Make siunitx use serif font for math
+\AtBeginDocument{\sisetup{math-rm=\mathrm, text-rm=\rmfamily}}
 
 \usetheme{default}
 \title[When PageRank fails]{Ranking nodes in growing networks: \\ When PageRank fails}

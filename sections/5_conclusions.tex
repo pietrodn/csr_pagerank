@@ -1,1 +1,27 @@
 \section{Conclusions}
+
+\begin{frame}{Important findings}
+    \begin{itemize}
+        \item Mismatch between relevance and activity decay timescales leads to \alert{time bias} in PageRank:
+        \begin{itemize}
+            \item towards recent nodes if decay of relevance is faster
+            \item towards old nodes if decay of ativity is faster
+        \end{itemize}
+        \item PageRank can underperform w.r.t. \alert{indegree ranking}
+        \item Findings are \alert{robust} with respect to:
+        \begin{itemize}
+            \item form of decay function
+            \item distribution of fitness among the nodes
+            \item metric used to evaluate the algorithm
+        \end{itemize}
+        \item Link \alert{timestamps} are crucial for this analysis
+        \item Method not applicable to undirected networks
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{In conclusion\ldots}
+    \begin{quote}
+        PageRank, despite its popularity and robustness, \alert{can fail} and thus it should not be used without \alert{carefully considering the temporal properties of the system} to which it is to be applied.
+    \end{quote}
+\end{frame}

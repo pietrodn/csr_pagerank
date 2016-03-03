@@ -29,6 +29,7 @@
         \begin{itemize}
             \item quality parameter assigned to each node
             \item \emph{node’s inherent competence in attracting new incoming links}
+            \item concept formerly explored by the Bianconi–Barabási model
         \end{itemize}
 
         \item \alert{Relevance and activity}
@@ -44,6 +45,14 @@
             \item Real-world phenomenon: nodes lose relevance over time
         \end{itemize}
     \end{enumerate}
+\end{frame}
+
+\begin{frame}{Relevance decay: a real-world example}
+    \begin{figure}
+        \includegraphics[width=0.8\textwidth]{figures/RelevanceDecayAPS}
+        \caption{Temporal decay of the average relevance $r(t)$ of papers in the American Physical Society citation network (1893-2009).
+        Papers are clustered in three classes, by their indegree.}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{How to build a network with the Relevance Model}
@@ -165,5 +174,3 @@
     Diagonal: no temporal bias towards recent or old nodes.}
 \end{figure}
 \end{frame}
-
-% TODO: insert fig. S9a, S10a?

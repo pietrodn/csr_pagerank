@@ -7,7 +7,15 @@
     \]
 
     \begin{itemize}
-        \item $n_i(t) = \frac{\Delta k_i^{in}(t, \Delta t)}{L(t, \Delta t)}$: ratio between number of incoming links received by node $i$ in the time window $[t, t+\Delta t]$ and the total number of links created within the same time window
+        \item $n_i(t) = \frac{\Delta k_i^{in}(t, \Delta t)}{L(t, \Delta t)}$: ratio between:
+
+        \begin{itemize}
+            \begin{footnotesize}
+            \item $\Delta k_i^{in}(t, \Delta t)$: \# of incoming links received by node $i$ in the time window $[t, t+\Delta t]$
+            \item $L(t, \Delta t)$: total \# of links created within the same time window
+        \end{footnotesize}
+        \end{itemize}
+
         \item $n_i^{PA}(t) = \frac{k_i^{in}(t)}{\sum_j k_j^{in}(t)}$: expected value of $n_i(t)$ according to preferential attachment alone
     \end{itemize}
 

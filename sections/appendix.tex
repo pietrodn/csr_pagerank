@@ -1,3 +1,19 @@
+\section{Empirical relevance}
+\begin{frame}{Empirical relevance: definition}
+    The \alert{empirical relevance} $r_i(t)$ of node $i$ at time $t$ is defined as:
+
+    \[
+        r_i(t) = \frac{n_i(t)}{n_i^{PA}(t)}
+    \]
+
+    \begin{itemize}
+        \item $n_i(t) = \frac{\Delta k_i^{in}(t, \Delta t)}{L(t, \Delta t)}$: ratio between number of incoming links received by node $i$ in the time window $[t, t+\Delta t]$ and the total number of links created within the same time window
+        \item $n_i^{PA}(t) = \frac{k_i^{in}(t)}{\sum_j k_j^{in}(t)}$: expected value of $n_i(t)$ according to preferential attachment alone
+    \end{itemize}
+
+    $r_i(t) > 1$ \alert{$(< 1)$}: node $i$ at time $t$ outperforms \alert{(underperforms)} in the competition for incoming links with respect to its preferencial attachment weight.
+\end{frame}
+
 \section{The Extended Fitness Model}
 
 \begin{frame}{The Extended Fitness Model}

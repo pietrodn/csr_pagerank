@@ -2,12 +2,12 @@
 
 \begin{frame}{Important findings}
     \begin{itemize}
+        \item PageRank can underperform w.r.t. \alert{indegree ranking}
         \item Mismatch between relevance and activity decay timescales leads to \alert{time bias} in PageRank:
         \begin{itemize}
             \item towards recent nodes if decay of relevance is faster
             \item towards old nodes if decay of activity is faster
         \end{itemize}
-        \item PageRank can underperform w.r.t. \alert{indegree ranking}
         \item Findings are \alert{robust} with respect to:
         \begin{itemize}
             \item form of decay function
@@ -15,7 +15,7 @@
             \item metric used to evaluate the algorithm
         \end{itemize}
         \item Link \alert{timestamps} are crucial for this analysis
-        \item Method not applicable to undirected networks
+        \item Method can not be applied to undirected networks
     \end{itemize}
 
 \end{frame}

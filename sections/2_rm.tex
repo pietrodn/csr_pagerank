@@ -5,13 +5,14 @@
     \begin{itemize}
         \item \alert{What} is the Relevance Model?
         \begin{itemize}
-            \item Growing directed network model \\ with \alert{preferential attachment} and \alert{relevance}.
-            \item Generalizes the classical \textbf{Barabási-Albert} model
+            \item growing directed network model \\ with \alert{preferential attachment} and \alert{relevance}
+            \item generalizes the classical \textbf{Barabási-Albert} model
+            \item introduced by~\cite{Medo2011}
         \end{itemize}
 
         \item \alert{Why} using RM?
         \begin{itemize}
-            \item model that best explains the linking patterns in real information systems
+            \item model that best explains the linking patterns in real networks
             \item used to model WWW, citation and technological networks
         \end{itemize}
     \end{itemize}
@@ -76,7 +77,7 @@
 \end{frame}
 
 \begin{frame}{Relevance Model:\@ Link generation mechanism}
-    When a node $j$ generates a new link at time $t$, the probability that the target is node $i$ is:
+    The probability for the node $i$ to be the target of a new link created at time $t$ is:
     \[
         \Pi_i^{in}(t) \sim (k_i^{in}(t) + 1) \, \eta_i \, f_R (t-\tau_i)
     \]
@@ -92,7 +93,7 @@
 \begin{frame}{Relevance Model:\@ Active nodes selection}
     In the RM, nodes \alert{continue being active} and generate outgoing links continually.
 
-    Probability of being chosen as an \textbf{active node} at time $t$:
+    Probability for node $i$ to be chosen as an \textbf{active node} at time $t$:
     \[
         \Pi_i^{out}(t) \sim A_i \, f_A (t-\tau_i)
     \]

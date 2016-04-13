@@ -8,3 +8,6 @@ live: main.tex
 
 clean:
 	latexmk -C
+
+pdf: all
+	cp main.pdf CSR-PageRank.pdf

@@ -6,6 +6,9 @@ This project consists in a **slideshow** which aims to present a scientific pape
 
 This project has been made for the oral exam of the course of *[Complessità nei Sistemi e nelle Reti](http://home.deib.polimi.it/piccardi/csr.html)*, held by [prof. Carlo Piccardi](http://home.deib.polimi.it/piccardi/) in Politecnico di Milano.
 
+## Download
+You can download the slideshow at [this address](https://github.com/pietrodn/csr_pagerank/blob/master/CSR-PageRank.pdf).
+
 ## Original paper
 
 Mariani, M. S. et al. *[Ranking nodes in growing networks: When PageRank fails](http://www.nature.com/articles/srep16181)*. Scientific Reports 5, Article number: 16181; doi: 10.1038/srep16181 (2015).
